@@ -30,7 +30,7 @@ class Party:
         self.active = False
         self.save()
 
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
 
         if self._history:
             # Update the party history first.
