@@ -59,6 +59,9 @@ class Party:
             if not hasattr(Model, '__table__'):
                 continue
 
+            if Model.table_query():
+                continue
+
             sql_table = Model.__table__()
 
             # Update direct foreign key references
