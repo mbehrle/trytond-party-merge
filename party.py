@@ -17,9 +17,10 @@ class Party:
     __name__ = 'party.party'
 
     def get_rec_name(self, name):
+        res = super(Party, self).get_rec_name(name)
         if Transaction().context.get('show_code'):
-            return "%s (%s)" % (self.name, self.code)
-        return super(Party, self).get_rec_name(name)
+            return "%s (%s)" % (res, self.code)
+        return res
 
     def merge_into(self, target):
         """Merge current record to target party.
