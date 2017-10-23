@@ -24,7 +24,7 @@ msgstr "Parteien zusammenfassen"
 
 msgctxt "view:party.party.merge.view:"
 msgid "Merge Parties"
-msgstr "Parteien zusammenfassen"
+msgstr "Alle ausgewählten Parteien zusammenfassen"
 
 msgctxt "wizard_button:party.party.merge,merge,end:"
 msgid "Cancel"
