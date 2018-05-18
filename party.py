@@ -16,6 +16,12 @@ __all__ = ['Party', 'PartyMergeView', 'PartyMerge']
 class Party:
     __name__ = 'party.party'
 
+    replaced_by = fields.Many2One('party.party', "Replaced By", readonly=True,
+        states={
+            'invisible': ~Eval('replaced_by'),
+            },
+        help="The party replacing this one.")
+
     def get_rec_name(self, name):
         res = super(Party, self).get_rec_name(name)
         if Transaction().context.get('show_code'):
@@ -28,6 +34,7 @@ class Party:
         ModelField = Pool().get('ir.model.field')
 
         # Inactive party first
+        self.replaced_by = target
         self.active = False
         self.save()
 
